@@ -54,7 +54,7 @@ private double saldo_actual;
     double aux, aux2;
     aux= this.getSaldo_actual()*(ian/365);
     aux2= this.getSaldo_actual()+aux;
-    this.setSaldo_actual(aux);
+    this.setSaldo_actual(aux2);
     }
 
     public void ingresar(double Ingreso){
@@ -71,7 +71,7 @@ private double saldo_actual;
     String aux;
     aux= "No. de la cuenta: "+this.getNumero_cuenta()+"\n"
         +"No. de identificacion: "+this.getNumero_id()+"\n"
-        +"Saldo ACtual: "+this.getSaldo_actual();
+        +"Saldo ACtual: "+this.getSaldo_actual()+"\n";
     return aux;
     }
     }

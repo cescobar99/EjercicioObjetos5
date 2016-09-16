@@ -50,21 +50,21 @@ public class Principal extends javax.swing.JFrame {
         txtNumeroID = new javax.swing.JTextField();
         txtSaldoActual = new javax.swing.JTextField();
         cmdCrear = new javax.swing.JButton();
+        cmdCuentaNueva = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtIngresar = new javax.swing.JTextField();
         cmdIngresar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtRetirar = new javax.swing.JTextField();
         cmdRetirar = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        txtInteres = new javax.swing.JTextField();
-        cmdActualizar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         cmdMostrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtMostrar = new javax.swing.JTextArea();
         cmdLimpiar = new javax.swing.JButton();
-        cmdCuentaNueva = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        txtInteres = new javax.swing.JTextField();
+        cmdActualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -76,16 +76,40 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Cuenta"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
         jLabel2.setText("Numero Cuenta");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 20));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 255));
         jLabel3.setText("Numero Identificacion");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 20));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 255));
         jLabel4.setText("Saldo Actual");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 20));
-        jPanel1.add(txtNumeroCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 200, -1));
-        jPanel1.add(txtNumeroID, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 200, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 20));
+
+        txtNumeroCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroCuentaKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNumeroCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 200, -1));
+
+        txtNumeroID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroIDKeyTyped(evt);
+            }
+        });
+        jPanel1.add(txtNumeroID, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 200, -1));
+
+        txtSaldoActual.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSaldoActualKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtSaldoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 210, -1));
 
         cmdCrear.setText("Crear Cuenta");
@@ -94,12 +118,26 @@ public class Principal extends javax.swing.JFrame {
                 cmdCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+        jPanel1.add(cmdCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 380, 190));
+        cmdCuentaNueva.setText("Crear Nueva Cuenta");
+        cmdCuentaNueva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCuentaNuevaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCuentaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 410, 190));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingresar Saldo"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtIngresar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIngresarKeyTyped(evt);
+            }
+        });
         jPanel2.add(txtIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 180, -1));
 
         cmdIngresar.setText("Ingresar");
@@ -114,6 +152,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Retirar Saldo"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtRetirar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRetirarKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtRetirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 180, -1));
 
         cmdRetirar.setText("Retirar");
@@ -124,21 +168,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel3.add(cmdRetirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 210, 90));
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Interes"));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel4.add(txtInteres, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, -1));
-
-        cmdActualizar.setText("Actualizar");
-        cmdActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdActualizarActionPerformed(evt);
-            }
-        });
-        jPanel4.add(cmdActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 180, 90));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 210, 100));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultado"));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -151,6 +181,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel5.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
 
+        txtMostrar.setEditable(false);
         txtMostrar.setColumns(20);
         txtMostrar.setRows(5);
         jScrollPane1.setViewportView(txtMostrar);
@@ -165,15 +196,27 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel5.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, -1, -1));
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 370, 220));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 370, 220));
 
-        cmdCuentaNueva.setText("Crear Nueva Cuenta");
-        cmdCuentaNueva.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmdCuentaNuevaActionPerformed(evt);
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Interes"));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtInteres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInteresKeyTyped(evt);
             }
         });
-        getContentPane().add(cmdCuentaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, -1, -1));
+        jPanel4.add(txtInteres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, -1));
+
+        cmdActualizar.setText("Actualizar");
+        cmdActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdActualizarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(cmdActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 210, 100));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -298,6 +341,54 @@ public class Principal extends javax.swing.JFrame {
         cmdCuentaNueva.setEnabled(false);
         cmdLimpiar.setEnabled(false);
     }//GEN-LAST:event_cmdCuentaNuevaActionPerformed
+
+    private void txtNumeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroCuentaKeyTyped
+    char c=evt.getKeyChar(); 
+    if(!Character.isDigit(c)) { 
+    getToolkit().beep(); 
+    evt.consume(); 
+    }
+    }//GEN-LAST:event_txtNumeroCuentaKeyTyped
+
+    private void txtNumeroIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroIDKeyTyped
+    char c=evt.getKeyChar(); 
+    if(!Character.isDigit(c)) { 
+    getToolkit().beep(); 
+    evt.consume(); 
+    }
+    }//GEN-LAST:event_txtNumeroIDKeyTyped
+
+    private void txtSaldoActualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoActualKeyTyped
+    char c=evt.getKeyChar(); 
+    if(!Character.isDigit(c)) { 
+    getToolkit().beep(); 
+    evt.consume(); 
+    }
+    }//GEN-LAST:event_txtSaldoActualKeyTyped
+
+    private void txtInteresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInteresKeyTyped
+    char c=evt.getKeyChar(); 
+    if(!Character.isDigit(c)) { 
+    getToolkit().beep(); 
+    evt.consume(); 
+    }
+    }//GEN-LAST:event_txtInteresKeyTyped
+
+    private void txtIngresarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresarKeyTyped
+    char c=evt.getKeyChar(); 
+    if(!Character.isDigit(c)) { 
+    getToolkit().beep(); 
+    evt.consume(); 
+    }
+    }//GEN-LAST:event_txtIngresarKeyTyped
+
+    private void txtRetirarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRetirarKeyTyped
+    char c=evt.getKeyChar(); 
+    if(!Character.isDigit(c)) { 
+    getToolkit().beep(); 
+    evt.consume(); 
+    }
+    }//GEN-LAST:event_txtRetirarKeyTyped
 
     /**
      * @param args the command line arguments
